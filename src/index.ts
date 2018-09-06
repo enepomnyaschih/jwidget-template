@@ -1,5 +1,7 @@
 import "es6-promise/auto";
-import "jquery";
+import "script-loader!jquery";
+import "./index.styl"
+
 import Application from "./Application";
 
 $(function() {

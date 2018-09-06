@@ -12,13 +12,16 @@ for (let key in pages) {
 	entry[key] = pages[key].path;
 }
 
-return {
+module.exports = {
 	context: path.resolve(__dirname, "../src"),
 	entry: entry,
 	output: {
 		filename: "bundle-[name]-[contenthash].js",
 		path: path.resolve(__dirname, "../" + publicFolder),
 		publicPath: "/"
+	},
+	resolve: {
+		extensions: [".ts", ".js"]
 	},
 	module: {
 		rules: [

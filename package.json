@@ -20,6 +20,7 @@
     "jwidget": "2.0.x",
     "mini-css-extract-plugin": "0.4.x",
     "optimize-css-assets-webpack-plugin": "5.0.x",
+    "script-loader": "0.7.x",
     "source-map-loader": "0.2.x",
     "stylus": "0.54.x",
     "stylus-loader": "3.0.x",
