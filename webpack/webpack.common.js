@@ -9,7 +9,9 @@ const publicFolder = "public";
 
 const entry = {};
 for (let key in pages) {
-	entry[key] = pages[key].path;
+	if (pages.hasOwnProperty(key)) {
+		entry[key] = pages[key].path;
+	}
 }
 
 module.exports = {
