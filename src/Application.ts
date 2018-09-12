@@ -1,8 +1,10 @@
 import Component from "jwidget/Component";
+import template from "jwidget/template";
 
+@template(require<string>("./Application.jw.html"))
 export default class Application extends Component {
 
 	protected renderRoot(el: JQuery) {
-		el.text("Hello, World!").addClass("application");
+		el.text("Hello, World!");
 	}
 }
