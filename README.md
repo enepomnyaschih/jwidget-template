@@ -10,7 +10,7 @@
     3. Open the provided URL in your Web browser.
 6. Before initial commit to a publicly available repository, you should:
     1. Adjust `README.md` file with your project description.
-    2. Replace the `LICENSE` file with your desired [LGPLv3](https://www.gnu.org/licenses/lgpl-3.0.en.html)-compatible license.
+    2. Replace the `LICENSE` file with your desired license.
     3. Change the package name and version in `package.json` file.
 7. You are then free to do any edits in any files incl. npm/TypeScript/WebPack configuration files, HTML templates,
 source files, static files etc. to satisfy your needs.
@@ -50,3 +50,5 @@ Template features:
 18. Provides `.gitignore` file to filter off the garbage.
 19. Shortens WebPack output to provide only important information.
 20. Provides you with jWidget "Hello, World!" sample code to start with.
+
+The template is distributed under terms of [MIT license](https://opensource.org/licenses/MIT).
