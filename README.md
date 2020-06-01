@@ -10,7 +10,7 @@
     3. Open the provided URL in your Web browser.
 6. Before initial commit to a publicly available repository, you should:
     1. Adjust `README.md` file with your project description.
-    2. Replace the `LICENSE` file with your desired license.
+    2. Replace `LICENSE` file with your desired license, or delete it if you don't want to distribute your application's code.
     3. Change the package name and version in `package.json` file.
 7. You are then free to do any edits in any files incl. npm/TypeScript/WebPack configuration files, HTML templates,
 source files, static files etc. to satisfy your needs.
