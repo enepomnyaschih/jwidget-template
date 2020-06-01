@@ -1,5 +1,5 @@
 const path = require("path"),
-	CleanWebpackPlugin = require("clean-webpack-plugin"),
+	{CleanWebpackPlugin} = require("clean-webpack-plugin"),
 	CopyWebpackPlugin = require("copy-webpack-plugin"),
 	HtmlWebpackPlugin = require("html-webpack-plugin"),
 	MiniCssExtractPlugin = require("mini-css-extract-plugin"),
@@ -19,8 +19,7 @@ module.exports = {
 	entry: entry,
 	output: {
 		filename: "bundle-[name]-[contenthash].js",
-		path: path.resolve(__dirname, "../" + publicFolder),
-		publicPath: "/"
+		path: path.resolve(__dirname, "../" + publicFolder)
 	},
 	resolve: {
 		extensions: [".ts", ".js"]
@@ -55,7 +54,31 @@ module.exports = {
 			{
 				test: /\.ts$/,
 				exclude: /node_modules/,
-				loader: "ts-loader"
+				use: [
+					{
+						loader: "babel-loader",
+						options: {
+							presets: [
+								["@babel/preset-env", {
+									targets: {
+										browsers: [
+											"last 2 versions",
+											"IE >= 11"
+										]
+									}
+								}]
+							],
+							plugins: [
+								['@babel/plugin-proposal-decorators', {
+									legacy: true
+								}]
+							]
+						}
+					},
+					{
+						loader: "ts-loader"
+					}
+				]
 			}
 		]
 	},
@@ -66,28 +89,36 @@ module.exports = {
 		}
 	},
 	plugins: [
-		new CleanWebpackPlugin([publicFolder], {
-			root: path.resolve(__dirname, "..")
+		new CleanWebpackPlugin(),
+		new CopyWebpackPlugin({
+			patterns: [
+				{
+					from: "../static"
+				}
+			]
 		}),
-		new CopyWebpackPlugin(["../static"]),
 		new MiniCssExtractPlugin({
 			chunkFilename: "[id]-[contenthash].css"
+		}),
+		...Object.keys(pages).map(id => {
+			const page = pages[id];
+			return new HtmlWebpackPlugin({
+				chunks: [id],
+				filename: id + ".html",
+				template: "!!html-webpack-plugin/lib/loader.js!./webpack/" + (page.template || "template") + ".html",
+				inject: "body",
+				page: id,
+				title: page.title
+			});
 		})
-	].concat(Object.keys(pages).map(function (id) {
-		const page = pages[id];
-		return new HtmlWebpackPlugin({
-			chunks: [id],
-			filename: id + ".html",
-			template: "!!html-webpack-plugin/lib/loader.js!./webpack/" + (page.template || "template") + ".html",
-			inject: "body",
-			page: id,
-			title: page.title
-		});
-	})),
+	],
 	stats: {
 		assets: false,
 		children: false,
 		entrypoints: false,
 		modules: false
+	},
+	performance: {
+		hints: false
 	}
 };
