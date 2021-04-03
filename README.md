@@ -15,10 +15,10 @@
 7. You are then free to do any edits in any files incl. npm/TypeScript/WebPack configuration files, HTML templates,
 source files, static files etc. to satisfy your needs.
 
-This template is designed for painless [jWidget 2](http://enepomnyaschih.github.io/jwidget/2.2/) integration with
+This template is designed for painless [jWidget 2.3](http://enepomnyaschih.github.io/jwidget/2.3/) integration with
 TypeScript, WebPack and Babel.
 
-See [jWidget 2 tutorials](http://enepomnyaschih.github.io/jwidget/2.2/tutorials/tutorial1.html) to get involved.
+See [jWidget 2 tutorials](http://enepomnyaschih.github.io/jwidget/2.3/tutorials/tutorial1.html) to get involved.
 
 Template features:
 
