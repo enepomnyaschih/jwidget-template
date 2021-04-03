@@ -7,7 +7,7 @@
 5. Serve `public` folder with some Web server, for example:
     1. Install `serve` module: `npm install -g serve`.
     2. Run `serve public` to serve `public` folder.
-    3. Open the provided URL in your Web browser.
+    3. Open the provided URL in your Web browser. It should display "Hello, World!" message.
 6. Before initial commit to a publicly available repository, you should:
     1. Adjust `README.md` file with your project description.
     2. Replace `LICENSE` file with your desired license, or delete it if you don't want to distribute your application's code.
